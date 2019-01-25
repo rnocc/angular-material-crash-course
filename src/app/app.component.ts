@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Astronaut } from './types';
+import { Astronaut, Filter, FilterState, Option } from './types';
 import { AstronautService } from './astronaut.service';
 
 @Component({
@@ -9,8 +9,16 @@ import { AstronautService } from './astronaut.service';
 })
 export class AppComponent {
   astronauts: Astronaut[];
+  filters: Filter[];
+  filterState: FilterState;
 
   constructor(astronautService: AstronautService) {
     this.astronauts = astronautService.astronauts;
+    this.filters = astronautService.filters;
+    this.filterState = astronautService.filterState;
+  }
+
+  changeFilter(category: string, option: Option) {
+    this.filterState[category] = option;
   }
 }

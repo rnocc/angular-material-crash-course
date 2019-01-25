@@ -4,6 +4,11 @@ import {
   MatToolbarModule,
   MatSidenavModule,
   MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatDividerModule,
+  MatListModule,
+  MatButtonModule,
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -19,6 +24,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatToolbarModule,
     MatSidenavModule,
     MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDividerModule,
+    MatListModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

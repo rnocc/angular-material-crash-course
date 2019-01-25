@@ -3,7 +3,23 @@
 </mat-toolbar>
 <mat-sidenav-container class="page-container">
   <mat-sidenav mode="side" opened>
-    sidenav
+    <mat-form-field class="search">
+      <input matInput placeholder="Search astronauts">
+    </mat-form-field>
+    <mat-divider></mat-divider>
+    <ng-container *ngFor="let filter of filters; last as last">
+      <mat-list>
+        <h3 matSubheader>{{ filter.displayName }}</h3>
+
+        <mat-list-item *ngFor="let val of filter.options" (click)="changeFilter(filter.category, val)">
+          <button mat-button class="list-button">
+            {{ val }}
+          </button>
+        </mat-list-item>
+
+      </mat-list>
+      <mat-divider *ngIf="!last"></mat-divider>
+    </ng-container>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-card *ngFor="let astronaut of astronauts">
