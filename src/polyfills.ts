@@ -1,3 +1,5 @@
+import 'core-js/es7/reflect';
+
 /**
  * This file includes polyfills needed by Angular and is loaded before the app.
  * You can add your own extra polyfills to this file.
