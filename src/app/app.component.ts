@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Astronaut } from './types';
+import { AstronautService } from './astronaut.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-material-workshop-stl-devfest';
+  astronauts: Astronaut[];
+
+  constructor(astronautService: AstronautService) {
+    this.astronauts = astronautService.astronauts;
+  }
 }
