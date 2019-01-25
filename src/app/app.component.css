@@ -1,0 +1,17 @@
+:host {
+  height: 100vh;
+  display: grid;
+  grid-template: "toolbar"
+                 "page-container" 1fr;
+}
+
+.main-toolbar {
+  grid-area: toolbar;
+  display: grid;
+  grid-template:  "logo menu" auto
+  / 1fr 50px;
+}
+
+.page-container {
+  grid-area: page-container
+}
