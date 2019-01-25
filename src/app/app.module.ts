@@ -9,6 +9,8 @@ import {
   MatDividerModule,
   MatListModule,
   MatButtonModule,
+  MatChipsModule,
+  MatIconModule,
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -29,6 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatDividerModule,
     MatListModule,
     MatButtonModule,
+    MatChipsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
