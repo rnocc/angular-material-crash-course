@@ -35,19 +35,60 @@
     </ng-container>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-card *ngFor="let astronaut of astronauts">
-      <mat-card-title>{{astronaut.name}}</mat-card-title>
-      <img mat-card-image [src]="astronaut.photo">
-      <mat-card-content>
-        <dl>
-          <dt class="mat-small">Name</dt>
-          <dd class="mat-body-2">{{ astronaut.name }}</dd>
-          <dt class="mat-small">Space walks</dt>
-          <dd class="mat-body-2">{{ astronaut.spaceWalks }}</dd>
-          <dt class="mat-small">Undergraduate major</dt>
-          <dd class="mat-body-2">{{ astronaut.undergraduateMajor }}</dd>
-        </dl>
-      </mat-card-content>
-    </mat-card>
+    <mat-toolbar>
+      <button mat-raised-button [color]="viewTable ? 'primary' : 'default'" (click)="viewTable = !viewTable">
+        <mat-icon>grid_on</mat-icon>
+        Table view
+      </button>
+      <button mat-raised-button [color]="!viewTable ? 'primary' : 'default'" (click)="viewTable = !viewTable">
+        <mat-icon>view_list</mat-icon>
+        Card view
+      </button>
+    </mat-toolbar>
+    <div class="mat-elevation-z2" *ngIf="viewTable; else cards">
+      <mat-table #table [dataSource]="astronauts">
+
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let astronaut"> {{ astronaut.name }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="undergraduateMajor">
+          <mat-header-cell *matHeaderCellDef> Undergraduate major </mat-header-cell>
+          <mat-cell *matCellDef="let astronaut"> {{ astronaut.undergraduateMajor }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="graduateMajor">
+          <mat-header-cell *matHeaderCellDef> Graduate major </mat-header-cell>
+          <mat-cell *matCellDef="let astronaut"> {{ astronaut.graduateMajor }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="spaceWalks">
+          <mat-header-cell *matHeaderCellDef> Space walks </mat-header-cell>
+          <mat-cell *matCellDef="let astronaut"> {{ astronaut.spaceWalks }} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+    <ng-template #cards>
+      <div class="card-container">
+        <mat-card *ngFor="let astronaut of astronauts">
+          <mat-card-title>{{astronaut.name}}</mat-card-title>
+          <img mat-card-image [src]="astronaut.photo">
+          <mat-card-content>
+            <dl>
+              <dt class="mat-small">Name</dt>
+              <dd class="mat-body-2">{{ astronaut.name }}</dd>
+              <dt class="mat-small">Space walks</dt>
+              <dd class="mat-body-2">{{ astronaut.spaceWalks }}</dd>
+              <dt class="mat-small">Undergraduate major</dt>
+              <dd class="mat-body-2">{{ astronaut.undergraduateMajor }}</dd>
+            </dl>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </ng-template>
   </mat-sidenav-content>
 </mat-sidenav-container>

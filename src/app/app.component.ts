@@ -11,6 +11,8 @@ export class AppComponent {
   astronauts: Astronaut[];
   filters: Filter[];
   filterState: FilterState;
+  viewTable = false;
+  displayedColumns = ['name', 'undergraduateMajor', 'graduateMajor', 'spaceWalks'];
 
   constructor(astronautService: AstronautService) {
     this.astronauts = astronautService.astronauts;

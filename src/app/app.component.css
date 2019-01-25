@@ -16,7 +16,7 @@
   grid-area: page-container
 }
 
-mat-sidenav-content {
+.card-container {
   padding: 16px;
   display: grid;
   grid-gap: 10px;
