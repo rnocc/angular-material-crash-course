@@ -8,12 +8,20 @@
 .main-toolbar {
   grid-area: toolbar;
   display: grid;
-  grid-template:  "logo menu" auto
+  grid-template:  "title menu" auto
   / 1fr 50px;
 }
 
 .page-container {
   grid-area: page-container
+}
+
+h1 {
+  grid-area: title;
+}
+
+.menu-button {
+  grid-area: menu;
 }
 
 .card-container {

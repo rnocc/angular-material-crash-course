@@ -12,6 +12,7 @@ import {
   MatChipsModule,
   MatIconModule,
   MatTableModule,
+  MatMenuModule,
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -35,6 +36,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatChipsModule,
     MatIconModule,
     MatTableModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
